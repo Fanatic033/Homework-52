@@ -38,7 +38,9 @@ class CardDeck{
     }
     return cards;
   }
-
+  getRemainingCardsCount(): number {
+    return this.cards.length;
+  }
 }
 
 

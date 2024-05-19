@@ -1,10 +1,28 @@
 import './App.css';
 import Card from './components/Card/Card.tsx';
-const App = () => {
+import './lib/CardDeck.ts';
+import React, {useState} from 'react';
+import playingCard from './lib/playingCard.ts';
+import CardDeck from './lib/CardDeck.ts';
+
+const App: React.FC = () => {
+  const [cards, setCards] = useState<playingCard[]>([]);
+  const displayCards = () => {
+    const deck = new CardDeck();
+    const newCards = deck.getCards(5);
+    setCards(newCards);
+  };
   return (
-    <div className="playingCards faceImages">
-      <Card rank={'9'} suit={'spades'}/>
-    </div>
+    <>
+      <button onClick={displayCards}>Раздать карты</button>
+      {cards.length > 0 && (
+        <div className="playingCards faceImages">
+          {cards.map((card, index) => (
+            <Card key={index} rank={card.rank} suit={card.suit} />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 
