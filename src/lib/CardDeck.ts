@@ -20,7 +20,7 @@ class CardDeck{
   }
   public getCard(): playingCard {
     if (this.cards.length === 0) {
-       alert('Карт не осталось');
+       console.log('Карт не осталось');
     }
     const randomIndex = Math.floor(Math.random() * this.cards.length);
     return this.cards.splice(randomIndex, 1)[0]; // Удаляем и возвращаем карту
