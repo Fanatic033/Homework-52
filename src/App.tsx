@@ -24,8 +24,8 @@ const App: React.FC = () => {
   };
   return (
     <>
-      <div>Осталось карт: {remainingCards}</div>
-      <button onClick={displayCards}>Раздать карты</button>
+      <div className={'remainingCard'}>Осталось карт: {remainingCards}</div>
+      <button onClick={displayCards} className={'btn'}>Раздать карты</button>
       {hands && <div className="hand-outcome">Результат руки: {hands}</div>}
       {cards.length > 0 && (
         <div className="playingCards faceImages">

@@ -4,3 +4,25 @@
   padding: 2rem;
   text-align: center;
 }
+.remainingCard{
+  margin: 10px 0 ;
+  font-size: 24px;
+}
+
+.btn{
+  margin: 10px 0 20px 0  ;
+  width: 180px;
+  height: 40px;
+  border-radius: 7px;
+  background-color: #009900;
+  color: white;
+  border-color: transparent;
+  font-size: 18px;
+}
+.btn:active{
+  box-shadow: rgba(101, 195, 95, 2.5) 9px 17px 20px;
+  transition: all 0.1s ease 0s;
+}
+.hand-outcome{
+  margin-bottom: 10px;
+}
