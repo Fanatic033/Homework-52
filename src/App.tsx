@@ -6,19 +6,26 @@ import playingCard from './lib/playingCard.ts';
 import CardDeck from './lib/CardDeck.ts';
 
 const App: React.FC = () => {
+  const [deck] = useState(new CardDeck());
   const [cards, setCards] = useState<playingCard[]>([]);
+  const [remainingCards, setRemainingCards] = useState<number>(deck.getRemainingCardsCount());
   const displayCards = () => {
-    const deck = new CardDeck();
     const newCards = deck.getCards(5);
-    setCards(newCards);
+    if (newCards.length < 5) {
+      alert('Недостаточно карт для раздачи.');
+    } else {
+      setCards(newCards);
+    }
+    setRemainingCards(deck.getRemainingCardsCount());
   };
   return (
     <>
+      <div>Осталось карт: {remainingCards}</div>
       <button onClick={displayCards}>Раздать карты</button>
       {cards.length > 0 && (
         <div className="playingCards faceImages">
           {cards.map((card, index) => (
-            <Card key={index} rank={card.rank} suit={card.suit} />
+            <Card key={index} rank={card.rank} suit={card.suit}/>
           ))}
         </div>
       )}
